@@ -1,20 +1,17 @@
-# Backend Laboratory Work 3
+# Backend Laboratory Work 4
 
 ## Preparation
 To run this project you need to have Docker and TypeScript
-
-## My variant
- 13 % 3 = 1
 
 ## How to use
 
 1. Clone Repo
 ```
-  git clone https://github.com/chebelok/lab3.git
+  git clone https://github.com/chebelok/lab4.git
 ```
 2. Move to project folder
 ```
-  cd /lab3
+  cd /lab4
 ```
 3. Istall dependencies
 ```
@@ -32,7 +29,7 @@ npm i
   http://localhost:3000/
 
 7. Here is link to deploy in Render
- https://three-backend-lab.onrender.com
+ in prtogress
 
 8. Here is link to Postman collection 
-  https://api.postman.com/collections/32540695-b63158ad-e849-49b2-a500-f038a653b0f8?access_key=PMAT-01HN372QDBEY1R8EF37JBQ7FMC
+  https://api.postman.com/collections/32540695-545d092b-fed4-41b0-8b8d-d6ed79501d88?access_key=PMAT-01HN3JKB21XX24E3B7EBMN5TD7
