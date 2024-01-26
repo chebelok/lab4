@@ -3,6 +3,7 @@ import { RecordService } from './record.service';
 import { CreateRecordDto } from './dto/create-record.dto';
 import { Record } from './entities/record.entity';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @Controller('record')
 export class RecordController {
@@ -27,7 +28,7 @@ export class RecordController {
   }
 
   @Delete(':id')
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, AdminGuard)
   remove(@Param('id') id: Record['id']) {
     return this.recordService.remove(id);
   }

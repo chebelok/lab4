@@ -2,13 +2,14 @@ import { Controller, Get, Post, Body, Param, Delete, UseGuards } from '@nestjs/c
 import { CurrencyService } from './currency.service';
 import { CreateCurrencyDto } from './dto/create-currency.dto';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @Controller('currency')
 export class CurrencyController {
   constructor(private readonly currencyService: CurrencyService) {}
 
   @Post()
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard, AdminGuard)
   create(@Body() createCurrencyDto: CreateCurrencyDto) {
     return this.currencyService.create(createCurrencyDto);
   }
@@ -26,8 +27,8 @@ export class CurrencyController {
   }
 
   @Delete(':id')
-  @UseGuards(AuthGuard)
-  remove(@Param('id') id: string) {
+  @UseGuards(AuthGuard, AdminGuard)
+  remove(@Param('id') id: string): Promise<boolean> {
     return this.currencyService.remove(id);
   }
 }
