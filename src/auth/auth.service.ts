@@ -36,7 +36,27 @@ export class AuthService {
     return token;
   }
 
-  async signIn(sinnInDto: SignInDto) {
-    return `This action returns all auth`;
+  async signIn(payload: SignInDto) {
+    const user = await this.userService.findOneByName(payload.name);
+
+    if (!user) {
+      throw new Error('user does not exist');
+    }
+
+    const isPasswordCorrect = await bcrypt.compare(
+      payload.password,
+      user.password
+    );
+
+    if (!isPasswordCorrect) {
+      throw new Error('incorrect password');
+    }
+
+    const token = await this.jwtService.signAsync(
+      { id: user.id }, 
+      { expiresIn: '24h' }
+    );
+
+    return token;
   }
 }

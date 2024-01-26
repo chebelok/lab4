@@ -14,8 +14,10 @@ export class AuthController {
     return { token };
   }
 
-  @Post()
-  signIn(@Body() signInDto: SignInDto) {
-    return;
+  @Post('signin')
+  async signIn(@Body() signInDto: SignInDto) {
+    const token = await this.authService.signIn(signInDto);
+
+    return { token };;
   }
 }
