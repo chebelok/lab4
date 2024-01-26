@@ -2,8 +2,8 @@ import { Controller, Get, Post, Body, Param, Delete, UseGuards } from '@nestjs/c
 import { RecordService } from './record.service';
 import { CreateRecordDto } from './dto/create-record.dto';
 import { Record } from './entities/record.entity';
-import { AuthGuard } from 'src/auth/guards/auth.guard';
-import { AdminGuard } from 'src/auth/guards/admin.guard';
+import { AuthGuard } from '../auth/guards/auth.guard';
+import { AdminGuard } from '../auth/guards/admin.guard';
 
 @Controller('record')
 export class RecordController {
