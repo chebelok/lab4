@@ -26,7 +26,7 @@ config();
     JwtModule.register({ global: true, secret: process.env.JWT_SECRET }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      ssl: false,
+      ssl: true,
       synchronize: true,
       host: process.env.DB_HOST,
       database: process.env.DB_NAME,
