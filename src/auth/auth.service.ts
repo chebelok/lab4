@@ -14,7 +14,6 @@ export class AuthService {
   ) {}
 
   async signUp(payload: CreateUserDto) {
-    console.log(payload);
     const user = await this.userService.findOneByName(payload.name);
 
     if (user) {
@@ -22,8 +21,6 @@ export class AuthService {
     }
 
     const hash = await bcrypt.hash(payload.password, 10);
-
-    console.log(hash);
 
     const registered = await this.userService.create({
       password: hash,
