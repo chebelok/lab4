@@ -20,6 +20,9 @@ export class User {
   @Column({ type: 'varchar' })
   password: string;
 
+  @Column({ type: 'boolean' })
+  isAdmin: boolean;
+
   @OneToMany(() => Record, (record) => record.user)
   records: Record[];
 

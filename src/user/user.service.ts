@@ -14,7 +14,8 @@ export class UserService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    const payload: CreateUserDto = {
+    const payload = {
+      isAdmin: false,
       name: createUserDto.name,
       password: createUserDto.password
     };
