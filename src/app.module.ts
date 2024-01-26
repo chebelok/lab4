@@ -10,6 +10,8 @@ import { Record } from './record/entities/record.entity';
 import { CurrencyModule } from './currency/currency.module';
 import { Currency } from './currency/entities/currency.entity';
 import { config } from 'dotenv';
+import { AuthModule } from './auth/auth.module';
+import { JwtModule } from '@nestjs/jwt';
 
 config();
 
@@ -20,6 +22,8 @@ config();
     CategoryModule,
     RecordModule,
     CurrencyModule,
+    AuthModule,
+    JwtModule.register({ global: true, secret: process.env.JWT_SECRET }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       ssl: false,
