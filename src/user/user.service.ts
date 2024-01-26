@@ -14,8 +14,9 @@ export class UserService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    const payload = {
+    const payload: CreateUserDto = {
       name: createUserDto.name,
+      password: createUserDto.password
     };
 
     if (createUserDto.defaultCurrencyCode) {
@@ -33,6 +34,16 @@ export class UserService {
 
   async findAll() {
     return this.userRepository.find();
+  }
+
+  async findOneByName(name: string) {
+    const user = await this.userRepository.findOne({
+      where: {
+        name
+      }
+    });
+
+    return user;
   }
 
   async findOne(id: string) {

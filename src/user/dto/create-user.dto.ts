@@ -5,6 +5,9 @@ export class CreateUserDto {
   name: string;
 
   @IsString()
+  password: string;
+
+  @IsString()
   @IsOptional()
   defaultCurrencyCode?: string;
 }
